@@ -8,6 +8,7 @@ import About from './components/About'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import Portfolio from './pages/Portfolio'
+import ChatWidget from './components/ChatWidget'
 
 export default function App() {
   const currentPath = window.location.pathname.replace(/\/$/, '') || '/'
@@ -27,6 +28,7 @@ export default function App() {
       <About />
       <Contact />
       <Footer />
+      <ChatWidget />
     </>
   )
 }
