@@ -15,9 +15,9 @@ SERVICES WE OFFER:
 4. Global Placement — managing international placements, travel bookings, and cross-border licensing across our 18-market network.
 
 CONTACT INFO:
-- General enquiries: hello@breakwallstudios.com
-- Bookings: bookings@breakwallstudios.com
-- Location: Westlands, Nairobi, Kenya
+- General enquiries: breakwallstudios@gmail.com
+- Bookings: breakwallstudios@gmail.com
+- Location: WorldWide 
 
 YOUR ROLE:
 - Answer visitor questions about Breakwall Studios warmly, confidently, and concisely (2-4 sentences max per reply).
@@ -58,7 +58,7 @@ export default async function handler(req, res) {
     contents.push({ role: 'user', parts: [{ text: message }] });
 
     const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
