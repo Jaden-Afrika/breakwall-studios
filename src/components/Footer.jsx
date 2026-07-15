@@ -11,7 +11,7 @@ export default function Footer() {
         </div>
         <div className="footer__cols">
           <div className="footer__col">
-            <h4>Talent</h4>
+            <h4></h4>
             
             
           </div>
@@ -25,9 +25,9 @@ export default function Footer() {
             </ul>
           </div>
           <div className="footer__col">
-            <h4>Follow</h4>
+            <h4></h4>
             <ul>
-              <li><a href="#">Instagram</a></li>
+            
         
             </ul>
           </div>
@@ -35,7 +35,7 @@ export default function Footer() {
       </div>
       <div className="footer__bottom">
         <span>© 2026 Breakwall Studios. All rights reserved.</span>
-        <span>Nairobi, Kenya</span>
+        <span>WORLDWIDE</span>
       </div>
     </footer>
   )

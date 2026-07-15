@@ -1,24 +1,19 @@
 import React, { useEffect, useRef } from 'react'
 import VL from './VL.jpeg'
 import AZ from './AZ.jpeg'
+import KH from './KH.jpeg'
 import './Talent.css'
 
 const models = [
   { name: 'Valerie Lucia', category: 'Editorial / Runway', market: 'Miami · Bucharest', initials: 'VL', image: VL },
   { name: 'Aria Zawadi', category: 'Commercial / Print', market: 'Cape Town · Miami', initials: 'AZ', image: AZ },
-  { name: 'Leila O.', category: 'Haute Couture', market: 'Nairobi · London', initials: 'LO' },
-  { name: 'Nadia S.', category: 'Lifestyle / Digital', market: 'Nairobi · NYC', initials: 'NS' },
-  { name: 'Imani J.', category: 'Runway / Editorial', market: 'Nairobi · Dubai', initials: 'IJ' },
-  { name: 'Angela Nelima.', category: 'Campaign / Print', market: 'Nairobi · Tokyo', initials: 'AN' },
+  { name: 'Kali H', category: 'Haute Couture', market: 'Nairobi · London', initials: 'KH', image: KH },
 ]
 
 const COLORS = [
   ['#f0e4c2','#c9a84c'],
   ['#e8e0d8','#9a7a2e'],
   ['#f4ece0','#c9a84c'],
-  ['#ede6da','#b8922a'],
-  ['#f2eadf','#c9a84c'],
-  ['#e6ddd2','#9a7a2e'],
 ]
 
 export default function Talent() {
@@ -41,6 +36,9 @@ export default function Talent() {
           <span>Our Talent</span>
         </div>
         <h2 className="talent__heading">The <em>Faces</em><br />of Breakwall</h2>
+        <p className="talent__disclaimer">
+          All faces shown are completely AI-generated. No one’s image or likeness is copied or replicated.
+        </p>
         <a href="#contact" className="talent__view-all">View Full Roster →</a>
       </div>
 
