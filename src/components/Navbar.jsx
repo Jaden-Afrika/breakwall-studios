@@ -13,7 +13,6 @@ export default function Navbar() {
 
   const links = [
     ['Talent', '/#talent'],
-    ['Portfolio', '/portfolio'],
     ['Services', '/#services'],
     ['About', '/#about'],
     ['Contact', '/#contact'],
