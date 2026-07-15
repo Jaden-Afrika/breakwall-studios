@@ -52,15 +52,20 @@ export default function Talent() {
             <div
               className="talent-card__photo"
               style={{
-                backgroundImage: m.image
-                  ? `url(${m.image})`
+                background: m.image
+                  ? 'transparent'
                   : `linear-gradient(160deg, ${COLORS[i][0]}, ${COLORS[i][1]}33)`,
-                backgroundSize: m.image ? 'cover' : 'auto',
-                backgroundPosition: m.image ? 'center' : '0 0',
-                backgroundRepeat: m.image ? 'no-repeat' : 'repeat',
               }}
             >
-              {!m.image && (
+              {m.image ? (
+                <img
+                  src={m.image}
+                  alt={m.name}
+                  loading="lazy"
+                  decoding="async"
+                  className="talent-card__image"
+                />
+              ) : (
                 <>
                   <div className="talent-card__initials" style={{ color: COLORS[i][1] }}>
                     {m.initials}

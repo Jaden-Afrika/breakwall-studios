@@ -1,68 +1,74 @@
-# Breakwall Studios — Landing Page
+# Breakwall Studios
 
-A luxury modelling agency website built with React + Vite.
+Breakwall Studios is a modern landing page for a creative agency focused on advertising, brand storytelling, and AI-generated talent visuals. The site is built with React and Vite, with a polished editorial aesthetic and a responsive layout.
 
-## Stack
+## What’s included
+- A full-screen hero section with animated canvas details
+- A services section for advertising, creative direction, and AI talent partnerships
+- A talent showcase featuring AI-generated model visuals and a disclaimer
+- An about section that explains the studio’s creative positioning
+- A contact section with an enquiry form
+- A floating chat assistant powered by a serverless API endpoint
+
+## Tech stack
 - React 18
 - Vite 5
-- Pure CSS (no CSS frameworks)
-- Google Fonts: Cormorant Garamond + Montserrat
+- CSS Modules-style component styling via plain CSS files
+- Google Fonts: Cormorant Garamond and Montserrat
 
-## Getting Started
+## Getting started
 
 ```bash
-# Install dependencies
 npm install
-
-# Start development server
 npm run dev
+```
 
-# Build for production
+Then open http://localhost:5173 in your browser.
+
+## Production build
+
+```bash
 npm run build
-
-# Preview production build
 npm run preview
 ```
 
-## Deploy (free)
+## Project structure
 
-### Vercel (recommended)
-1. Push this folder to a GitHub repo
-2. Go to vercel.com → Import Project
-3. Select your repo → Deploy
-4. Done — live in 60 seconds
+```text
+src/
+  components/
+    Navbar.jsx / .css
+    Hero.jsx / .css
+    Marquee.jsx / .css
+    Services.jsx / .css
+    Talent.jsx / .css
+    About.jsx / .css
+    Contact.jsx / .css
+    Footer.jsx / .css
+    ChatWidget.jsx / .css
+  App.jsx
+  main.jsx
+  index.css
+api/
+  chat.js
+index.html
+package.json
+vite.config.js
+```
+
+## Deployment
+
+### Vercel
+1. Push the project to GitHub
+2. Import it into Vercel
+3. Deploy
 
 ### Netlify
 1. Run `npm run build`
-2. Drag the `dist/` folder to netlify.com/drop
+2. Upload the generated `dist/` folder
 
-## Project Structure
+## Notes
+- The chat assistant relies on a server-side API route in the `api/` folder.
+- The talent section uses AI-generated visuals and includes a disclaimer for clarity.
 
-```
-src/
-  components/
-    Navbar.jsx / .css     ← Sticky nav with scroll effect
-    Hero.jsx / .css       ← Full-screen hero with canvas animation
-    Marquee.jsx / .css    ← Scrolling ticker
-    Services.jsx / .css   ← 4-column services grid
-    Talent.jsx / .css     ← Model roster cards
-    About.jsx / .css      ← Agency story (dark section)
-    Contact.jsx / .css    ← Contact form + details
-    Footer.jsx / .css     ← Footer with links
-  App.jsx                 ← Root component
-  main.jsx                ← React entry point
-  index.css               ← Global variables + resets
-index.html                ← HTML shell
-vite.config.js
-package.json
-```
-
-## Customisation
-
-- **Colors**: edit `--gold`, `--white`, `--charcoal` in `src/index.css`
-- **Fonts**: swap the Google Fonts import in `index.html`
-- **Content**: update copy in each component
-- **Talent cards**: add real model photos by replacing the gradient placeholders in `Talent.jsx`
-
----
 © 2026 Breakwall Studios

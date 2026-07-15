@@ -42,7 +42,7 @@ export default function ChatWidget() {
     } catch (err) {
       setMessages(prev => [
         ...prev,
-        { role: 'assistant', text: "I'm having trouble connecting right now. Please try again shortly, or reach us directly at hello@breakwallstudios.com." }
+        { role: 'assistant', text: "I'm having trouble connecting right now. Please try again shortly, or reach us directly at breakwallstudios@gmail .com." }
       ])
     } finally {
       setIsLoading(false)
