@@ -4,27 +4,27 @@ import './Services.css'
 const services = [
   {
     num: '01',
-    title: 'Model Development',
-    desc: 'We discover raw potential and sculpt careers with precision — from a model\'s first booking to a sustained global presence across markets.',
-    tag: 'Development'
+    title: 'Advertising Strategy',
+    desc: 'We develop campaigns that feel premium, clear, and culturally resonant — from positioning to visual storytelling.',
+    tag: 'Strategy'
   },
   {
     num: '02',
-    title: 'Brand Partnerships',
-    desc: 'Brokering meaningful relationships between world-class talent and the most aspirational labels, editorial houses, and campaign directors.',
-    tag: 'Commercial'
+    title: 'Creative Direction',
+    desc: 'We shape concepts, tone, and execution for brand work that stands out and stays memorable across digital and editorial spaces.',
+    tag: 'Creative'
   },
   {
     num: '03',
-    title: 'Editorial Direction',
-    desc: 'Elevating shoots and campaigns with a distinctive editorial vision that commands attention, earns covers, and drives cultural conversation.',
-    tag: 'Editorial'
+    title: 'AI Model Partnerships',
+    desc: 'We connect brands with emerging AI talent and innovative digital creators, building work that feels contemporary and future-facing.',
+    tag: 'AI'
   },
   {
     num: '04',
-    title: 'Global Placement',
-    desc: 'Our network spans 18 markets. We manage international placements, travel bookings, and cross-border licensing with seamless precision.',
-    tag: 'International'
+    title: 'Global Brand Support',
+    desc: 'We support rollout, positioning, and collaboration across markets with a sharp understanding of modern brand environments.',
+    tag: 'Global'
   }
 ]
 
@@ -52,7 +52,7 @@ export default function Services() {
           <span className="services__label-line" />
           <span>What We Do</span>
         </div>
-        <h2 className="services__heading">Crafted for<br /><em>Excellence</em></h2>
+        <h2 className="services__heading">Crafted for<br /><em>Impact</em></h2>
       </div>
 
       <div className="services__grid">
