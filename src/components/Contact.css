@@ -149,6 +149,15 @@
 }
 .contact__submit:hover { background: var(--gold-dark); transform: translateY(-1px); }
 
+.contact__submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+.contact__error {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: #c0392b;
+  margin: -8px 0 0;
+}
+
 .contact__success {
   display: flex;
   flex-direction: column;

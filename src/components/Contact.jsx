@@ -1,9 +1,15 @@
 import React, { useRef, useEffect, useState } from 'react'
 import './Contact.css'
 
+// Get a free access key at https://web3forms.com (just enter your email, no signup)
+// then paste it here.
+const WEB3FORMS_ACCESS_KEY = 'db6eb484-924f-4adf-a924-4672c54a3f5e'
+
 export default function Contact() {
   const ref = useRef(null)
   const [submitted, setSubmitted] = useState(false)
+  const [sending, setSending] = useState(false)
+  const [error, setError] = useState(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -14,9 +20,33 @@ export default function Contact() {
     return () => observer.disconnect()
   }, [])
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault()
-    setSubmitted(true)
+    setError(null)
+    setSending(true)
+
+    const form = e.target
+    const formData = new FormData(form)
+    formData.append('access_key', WEB3FORMS_ACCESS_KEY)
+    formData.append('subject', `New enquiry from ${formData.get('name')} — Breakwall Studios`)
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData,
+      })
+      const result = await res.json()
+
+      if (result.success) {
+        setSubmitted(true)
+      } else {
+        setError('Something went wrong sending your enquiry. Please try again or email us directly.')
+      }
+    } catch (err) {
+      setError('Something went wrong sending your enquiry. Please try again or email us directly.')
+    } finally {
+      setSending(false)
+    }
   }
 
   return (
@@ -53,15 +83,15 @@ export default function Contact() {
             <form className="contact__form" onSubmit={handleSubmit}>
               <div className="contact__field">
                 <label>Full Name</label>
-                <input type="text" placeholder="Your name" required />
+                <input type="text" name="name" placeholder="Your name" required />
               </div>
               <div className="contact__field">
                 <label>Email Address</label>
-                <input type="email" placeholder="your@email.com" required />
+                <input type="email" name="email" placeholder="your@email.com" required />
               </div>
               <div className="contact__field">
                 <label>Enquiry Type</label>
-                <select>
+                <select name="enquiry_type">
                   <option>Business Advertisement</option>
                   <option>Brand Partnership</option>
                   <option>Creative direction</option>
@@ -70,10 +100,11 @@ export default function Contact() {
               </div>
               <div className="contact__field">
                 <label>Message</label>
-                <textarea rows="4" placeholder="Tell us about your project..." required />
+                <textarea rows="4" name="message" placeholder="Tell us about your project..." required />
               </div>
-              <button type="submit" className="contact__submit">
-                Send Enquiry
+              {error && <p className="contact__error">{error}</p>}
+              <button type="submit" className="contact__submit" disabled={sending}>
+                {sending ? 'Sending…' : 'Send Enquiry'}
               </button>
             </form>
           ) : (
