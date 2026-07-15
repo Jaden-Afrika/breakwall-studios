@@ -33,16 +33,13 @@ export default function Contact() {
           <div className="contact__details">
             <div className="contact__detail">
               <span className="contact__detail-label">Email</span>
-              <span className="contact__detail-value">hello@breakwallstudios.com</span>
+              <span className="contact__detail-value">breakwallstudios@gmail.com</span>
             </div>
             <div className="contact__detail">
               <span className="contact__detail-label">Location</span>
-              <span className="contact__detail-value">Westlands, Nairobi, KE</span>
+              <span className="contact__detail-value">WORLDWIDE</span>
             </div>
-            <div className="contact__detail">
-              <span className="contact__detail-label">Bookings</span>
-              <span className="contact__detail-value">bookings@breakwallstudios.com</span>
-            </div>
+            
           </div>
           <div className="contact__socials">
             {['Instagram', 'LinkedIn', 'Pinterest'].map(s => (
@@ -65,9 +62,9 @@ export default function Contact() {
               <div className="contact__field">
                 <label>Enquiry Type</label>
                 <select>
-                  <option>Model Representation</option>
+                  <option>Business Advertisement</option>
                   <option>Brand Partnership</option>
-                  <option>Editorial Booking</option>
+                  <option>Creative direction</option>
                   <option>General Enquiry</option>
                 </select>
               </div>

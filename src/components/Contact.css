@@ -1,6 +1,7 @@
 .contact {
   padding: 120px 52px;
   background: var(--black);
+  color: var(--off-white);
 }
 
 .contact__reveal {
@@ -38,9 +39,10 @@
   font-family: var(--font-display);
   font-weight: 300;
   font-size: clamp(40px, 5vw, 58px);
-  color: var(--charcoal);
+  color: var(--off-white);
   line-height: 1.05;
   margin-bottom: 48px;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
 }
 .contact__heading em {
   font-style: italic;
@@ -69,7 +71,7 @@
   font-family: var(--font-body);
   font-size: 13px;
   font-weight: 300;
-  color: var(--charcoal);
+  color: var(--warm-white);
   letter-spacing: 0.04em;
 }
 
@@ -82,7 +84,7 @@
   font-size: 9px;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: #aaa;
+  color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
   transition: color 0.3s;
 }
@@ -104,19 +106,19 @@
   font-size: 8px;
   letter-spacing: 0.35em;
   text-transform: uppercase;
-  color: #aaa;
+  color: rgba(255, 255, 255, 0.8);
 }
 .contact__field input,
 .contact__field select,
 .contact__field textarea {
   background: transparent;
   border: none;
-  border-bottom: 0.5px solid rgba(201,168,76,0.25);
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.2);
   padding: 10px 0;
   font-family: var(--font-body);
   font-size: 13px;
   font-weight: 300;
-  color: var(--charcoal);
+  color: var(--off-white);
   outline: none;
   transition: border-color 0.3s;
   width: 100%;
@@ -124,7 +126,7 @@
   border-radius: 0;
 }
 .contact__field input::placeholder,
-.contact__field textarea::placeholder { color: #ccc; }
+.contact__field textarea::placeholder { color: rgba(255, 255, 255, 0.55); }
 .contact__field input:focus,
 .contact__field select:focus,
 .contact__field textarea:focus { border-bottom-color: var(--gold); }
@@ -167,14 +169,14 @@
   font-size: 40px;
   font-weight: 300;
   font-style: italic;
-  color: var(--charcoal);
+  color: var(--off-white);
 }
 .contact__success p {
   font-family: var(--font-body);
   font-size: 11px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #aaa;
+  color: rgba(255, 255, 255, 0.78);
 }
 
 @media (max-width: 900px) { .contact__inner { grid-template-columns: 1fr; gap: 60px; } }
