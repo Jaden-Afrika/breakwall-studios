@@ -1,6 +1,30 @@
 // Vercel Serverless Function — /api/chat
 // Keeps the Gemini API key on the server. Never exposed to the browser.
 
+// Crude in-memory rate limiter: caps each IP to RATE_LIMIT requests per RATE_WINDOW_MS.
+// Note: Vercel serverless instances are ephemeral and can scale horizontally, so this
+// resets on cold starts and isn't shared across instances — it's a speed bump against
+// casual abuse/runaway loops, not a hard guarantee. For stronger protection, back this
+// with a shared store (e.g. Upstash Redis) or Vercel's Edge Config / WAF rate limiting.
+const RATE_LIMIT = 10
+const RATE_WINDOW_MS = 5 * 60 * 1000 // 5 minutes
+const MAX_MESSAGE_LENGTH = 1000
+const requestLog = new Map()
+
+function isRateLimited(ip) {
+  const now = Date.now()
+  const timestamps = (requestLog.get(ip) || []).filter(t => now - t < RATE_WINDOW_MS)
+  timestamps.push(now)
+  requestLog.set(ip, timestamps)
+
+  if (requestLog.size > 5000) {
+    const oldestKey = requestLog.keys().next().value
+    requestLog.delete(oldestKey)
+  }
+
+  return timestamps.length > RATE_LIMIT
+}
+
 const SYSTEM_PROMPT = `You are the virtual assistant for Breakwall Studios, an advertising and creative firm based in Nairobi, founded in 2026 by Jaden Afrika (Founder & Creative Director).
 
 ABOUT BREAKWALL STUDIOS:
@@ -32,10 +56,23 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
+  const ip =
+    req.headers['x-forwarded-for']?.split(',')[0]?.trim() ||
+    req.socket?.remoteAddress ||
+    'unknown';
+
+  if (isRateLimited(ip)) {
+    return res.status(429).json({ error: 'Too many requests. Please wait a few minutes and try again.' });
+  }
+
   const { message, history } = req.body || {};
 
   if (!message || typeof message !== 'string') {
     return res.status(400).json({ error: 'Message is required' });
+  }
+
+  if (message.length > MAX_MESSAGE_LENGTH) {
+    return res.status(400).json({ error: 'Message is too long' });
   }
 
   const apiKey = process.env.GEMINI_API_KEY;
@@ -48,10 +85,11 @@ export default async function handler(req, res) {
     const contents = [];
 
     if (Array.isArray(history)) {
-      for (const turn of history) {
+      for (const turn of history.slice(-20)) {
+        if (typeof turn?.text !== 'string') continue;
         contents.push({
           role: turn.role === 'assistant' ? 'model' : 'user',
-          parts: [{ text: turn.text }],
+          parts: [{ text: turn.text.slice(0, MAX_MESSAGE_LENGTH) }],
         });
       }
     }
