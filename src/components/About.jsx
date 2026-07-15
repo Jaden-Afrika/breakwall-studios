@@ -22,17 +22,17 @@ export default function About() {
             <span>Our Story</span>
           </div>
           <h2 className="about__heading">
-            Built on<br /><em>Boldness.</em><br />Defined by<br />Standard.
+            Built for<br /><em>Advertising.</em><br />Driven by<br />Creativity.
           </h2>
           <div className="about__ornament">✦</div>
         </div>
 
         <div className="about__right about__reveal" style={{ transitionDelay: '0.2s' }}>
           <p className="about__body">
-            Founded in 2026, Breakwall Studios emerged from a singular conviction — that all talent deserved a world-class platform. We broke through walls of convention to build an agency where artistry and ambition meet.
+            Breakwall Studios is an advertising and creative firm shaping campaigns with a sharp eye for culture, storytelling, and innovation. We work at the intersection of brand strategy, visual direction, and emerging digital talent.
           </p>
           <p className="about__body">
-            Today, we represent over 4 models across 18 global markets. Our portfolio spans editorial, haute couture, commercial campaigns, and digital. Every talent we sign is nurtured with the precision of craft and the patience of vision.
+            Our focus includes AI models and next-generation creative partnerships, blending human taste with technology to build work that feels contemporary, distinctive, and commercially strong.
           </p>
           <div className="about__signature">
             <span className="about__sig-name">Jaden Afrika</span>

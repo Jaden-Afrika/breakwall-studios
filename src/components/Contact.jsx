@@ -72,9 +72,22 @@ export default function Contact() {
             
           </div>
           <div className="contact__socials">
-            {['Instagram', 'LinkedIn', 'Pinterest'].map(s => (
-              <a key={s} href="#" className="contact__social">{s}</a>
-            ))}
+            <a
+              href="https://www.instagram.com/breakwallstudios/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact__social"
+            >
+              Instagram
+            </a>
+            <a
+              href="https://x.com/BreakWallAgency"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact__social"
+            >
+              X
+            </a>
           </div>
         </div>
 
